@@ -16,13 +16,8 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
-/**
- * Description: 字符串操作类 Content Desc:
- *
- * @author liuqinghe
- * @version 1.0 Create Date:Jul 1, 2012
- */
-public class StringUtils {
+
+public class StringUtil {
     /**
      * 去掉字符串的空格
      *
@@ -65,6 +60,11 @@ public class StringUtils {
     public static boolean isEmpty(String str) {
         return isEmpty(str, true);
     }
+
+    public static boolean isNotEmpty(String str) {
+        return !isEmpty(str, true);
+    }
+
 
     /**
      * 过滤掉字符串中重复的字符
@@ -323,8 +323,6 @@ public class StringUtils {
         DecimalFormat df = (DecimalFormat) NumberFormat.getInstance();
         df.applyPattern("###,###");
         return df.format(number);
-
-//        return formatInteger2(number);
     }
 
     public static String formatInteger2(int number) {
@@ -363,7 +361,7 @@ public class StringUtils {
 
     public static String getMMddFromStr(String time) {
 
-        Date date = TimeUtils.parseTime(time);
+        Date date = TimeUtil.parseTime(time);
         if (date == null) {
             return "未知";
         }

@@ -9,14 +9,8 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Locale;
 
-/**
-* @Package: com.thfund.common.utils
-* @Title: TimeUtil.java
-* @Description:  
-* @date 2015年9月2日 上午9:18:34
-* @version V1.0
-**/
-public class TimeUtils {
+
+public class TimeUtil {
 
 
 	public static final String YYYY_MM_DD = "yyyy-MM-dd";
@@ -607,13 +601,13 @@ public class TimeUtils {
     }
 
     public static String getDateFromTime(String dateTime) {
-		if (StringUtils.isNull(dateTime) || dateTime.length() < 10) {
+		if (StringUtil.isNull(dateTime) || dateTime.length() < 10) {
 			return dateTime;
 		}
 		return dateTime.substring(0, 10);
 	}
     public static String getDateMinuteFromTime(String dateTime) {
-		if (StringUtils.isNull(dateTime) || dateTime.length() < 13) {
+		if (StringUtil.isNull(dateTime) || dateTime.length() < 13) {
 			return dateTime;
 		}
 		return dateTime.substring(0, 13);
@@ -651,7 +645,7 @@ public class TimeUtils {
 
 
     public static String friendlyTime(String dateTime){
-		if(StringUtils.isNull(dateTime))
+		if(StringUtil.isNull(dateTime))
 			return "";
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		String cuDate = dateFormat.format(new Date());
