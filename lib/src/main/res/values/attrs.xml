@@ -62,4 +62,9 @@
         </attr>
     </declare-styleable>
 
+    <declare-styleable name="MyRadioButton">
+        <attr name="rb_width" format="dimension"/>
+        <attr name="rb_height" format="dimension"/>
+    </declare-styleable>
+
 </resources>
