@@ -3,12 +3,12 @@ package com.wl.library.views.parallaxbacklayout.transform;
 import android.graphics.Canvas;
 import android.view.View;
 
-import com.github.anzewei.parallaxbacklayout.widget.ParallaxBackLayout;
+import com.wl.library.views.parallaxbacklayout.widget.ParallaxBackLayout;
 
-import static com.github.anzewei.parallaxbacklayout.ViewDragHelper.EDGE_BOTTOM;
-import static com.github.anzewei.parallaxbacklayout.ViewDragHelper.EDGE_LEFT;
-import static com.github.anzewei.parallaxbacklayout.ViewDragHelper.EDGE_RIGHT;
-import static com.github.anzewei.parallaxbacklayout.ViewDragHelper.EDGE_TOP;
+import static com.wl.library.views.parallaxbacklayout.ViewDragHelper.EDGE_LEFT;
+import static com.wl.library.views.parallaxbacklayout.ViewDragHelper.EDGE_TOP;
+import static com.wl.library.views.parallaxbacklayout.ViewDragHelper.EDGE_RIGHT;
+import static com.wl.library.views.parallaxbacklayout.ViewDragHelper.EDGE_BOTTOM;
 
 /**
  * ParallaxBackLayout
