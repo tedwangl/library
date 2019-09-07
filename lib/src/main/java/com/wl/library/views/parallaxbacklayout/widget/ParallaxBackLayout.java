@@ -8,8 +8,6 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
-import android.support.annotation.IntDef;
-import android.support.v4.view.ViewCompat;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -17,18 +15,18 @@ import android.view.ViewGroup;
 import android.view.WindowInsets;
 import android.widget.FrameLayout;
 
-import com.github.anzewei.parallaxbacklayout.ViewDragHelper;
-import com.github.anzewei.parallaxbacklayout.transform.CoverTransform;
-import com.github.anzewei.parallaxbacklayout.transform.ITransform;
-import com.github.anzewei.parallaxbacklayout.transform.ParallaxTransform;
-import com.github.anzewei.parallaxbacklayout.transform.SlideTransform;
+import com.wl.library.views.parallaxbacklayout.ViewDragHelper;
+import com.wl.library.views.parallaxbacklayout.transform.CoverTransform;
+import com.wl.library.views.parallaxbacklayout.transform.ITransform;
+import com.wl.library.views.parallaxbacklayout.transform.ParallaxTransform;
+import com.wl.library.views.parallaxbacklayout.transform.SlideTransform;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
-import static com.github.anzewei.parallaxbacklayout.ViewDragHelper.EDGE_BOTTOM;
-import static com.github.anzewei.parallaxbacklayout.ViewDragHelper.EDGE_RIGHT;
-import static com.github.anzewei.parallaxbacklayout.ViewDragHelper.EDGE_TOP;
+import androidx.annotation.IntDef;
+import androidx.core.view.ViewCompat;
+
 
 /**
  * The type Parallax back layout.
@@ -41,7 +39,7 @@ public class ParallaxBackLayout extends FrameLayout {
     public @interface LayoutType {
     }
 
-    @IntDef({ViewDragHelper.EDGE_LEFT, EDGE_RIGHT, EDGE_TOP, EDGE_BOTTOM})
+    @IntDef({ViewDragHelper.EDGE_LEFT, ViewDragHelper.EDGE_RIGHT, ViewDragHelper.EDGE_TOP, ViewDragHelper.EDGE_BOTTOM})
     @Retention(RetentionPolicy.SOURCE)
     public @interface Edge {
     }
@@ -121,7 +119,7 @@ public class ParallaxBackLayout extends FrameLayout {
     private int mFlingVelocity = 30;
     private
     @Edge
-    int mEdgeFlag = -1;
+    int mEdgeFlag = ViewDragHelper.EDGE_ALL;
     //endregion
 
     //region super method
@@ -240,9 +238,9 @@ public class ParallaxBackLayout extends FrameLayout {
             return;
         if (mEdgeMode == EDGE_MODE_FULL) {
             mDragHelper.setEdgeSize(Math.max(getWidth(), getHeight()));
-        } else if (mEdgeFlag == EDGE_TOP)
+        } else if (mEdgeFlag == ViewDragHelper.EDGE_TOP)
             mDragHelper.setEdgeSize(mInsets.top + mDragHelper.getEdgeSizeDefault());
-        else if (mEdgeFlag == EDGE_BOTTOM) {
+        else if (mEdgeFlag == ViewDragHelper.EDGE_BOTTOM) {
             mDragHelper.setEdgeSize(mInsets.bottom + mDragHelper.getEdgeSizeDefault());
         } else if (mEdgeFlag == ViewDragHelper.EDGE_LEFT) {
             mDragHelper.setEdgeSize(mDragHelper.getEdgeSizeDefault() + mInsets.left);
@@ -276,16 +274,16 @@ public class ParallaxBackLayout extends FrameLayout {
             mShadowLeft.setBounds(child.getLeft() - mShadowLeft.getIntrinsicWidth(), child.getTop(),
                     child.getLeft(), child.getBottom());
             mShadowLeft.setAlpha((getWidth()-child.getLeft())*255/getWidth());
-        } else if (mEdgeFlag == EDGE_RIGHT) {
+        } else if (mEdgeFlag == ViewDragHelper.EDGE_RIGHT) {
             mShadowLeft.setBounds(child.getRight(), child.getTop(),
                     child.getRight() + mShadowLeft.getIntrinsicWidth(), child.getBottom());
             mShadowLeft.setAlpha(child.getRight()*255/getWidth());
-        } else if (mEdgeFlag == EDGE_BOTTOM) {
+        } else if (mEdgeFlag == ViewDragHelper.EDGE_BOTTOM) {
             mShadowLeft.setBounds(child.getLeft(), child.getBottom(),
                     child.getRight(), child.getBottom() + mShadowLeft.getIntrinsicHeight());
 
             mShadowLeft.setAlpha(child.getBottom()*255/getHeight());
-        } else if (mEdgeFlag == EDGE_TOP) {
+        } else if (mEdgeFlag == ViewDragHelper.EDGE_TOP) {
             mShadowLeft.setBounds(child.getLeft(), child.getTop() - mShadowLeft.getIntrinsicHeight() + getSystemTop(),
                     child.getRight(), child.getTop() + getSystemTop());
             mShadowLeft.setAlpha((getHeight()-child.getTop())*255/getHeight());
@@ -376,16 +374,16 @@ public class ParallaxBackLayout extends FrameLayout {
         int left = 0, top = 0;
         mTrackingEdge = mEdgeFlag;
         switch (mTrackingEdge) {
-            case EDGE_LEFT:
+            case ViewDragHelper.EDGE_LEFT:
                 left = childWidth;
                 break;
-            case EDGE_BOTTOM:
+            case ViewDragHelper.EDGE_BOTTOM:
                 top = -getHeight();
                 break;
-            case EDGE_RIGHT:
+            case ViewDragHelper.EDGE_RIGHT:
                 left = -getWidth();
                 break;
-            case EDGE_TOP:
+            case ViewDragHelper.EDGE_TOP:
                 top = getHeight();
                 break;
         }
@@ -431,13 +429,13 @@ public class ParallaxBackLayout extends FrameLayout {
         mEdgeFlag = edgeFlag;
         mDragHelper.setEdgeTrackingEnabled(edgeFlag);
         GradientDrawable.Orientation orientation = GradientDrawable.Orientation.LEFT_RIGHT;
-        if (edgeFlag == EDGE_LEFT)
+        if (edgeFlag == ViewDragHelper.EDGE_LEFT)
             orientation = GradientDrawable.Orientation.RIGHT_LEFT;
-        else if (edgeFlag == EDGE_TOP) {
+        else if (edgeFlag == ViewDragHelper.EDGE_TOP) {
             orientation = GradientDrawable.Orientation.BOTTOM_TOP;
-        } else if (edgeFlag == EDGE_RIGHT)
+        } else if (edgeFlag == ViewDragHelper.EDGE_RIGHT)
             orientation = GradientDrawable.Orientation.LEFT_RIGHT;
-        else if (edgeFlag == EDGE_BOTTOM)
+        else if (edgeFlag == ViewDragHelper.EDGE_BOTTOM)
             orientation = GradientDrawable.Orientation.TOP_BOTTOM;
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
             mShadowLeft = null;
@@ -506,9 +504,9 @@ public class ParallaxBackLayout extends FrameLayout {
                 mTrackingEdge = mEdgeFlag;
             }
             boolean directionCheck = false;
-            if (mEdgeFlag == EDGE_LEFT || mEdgeFlag == EDGE_RIGHT) {
+            if (mEdgeFlag == ViewDragHelper.EDGE_LEFT || mEdgeFlag == ViewDragHelper.EDGE_RIGHT) {
                 directionCheck = !mDragHelper.checkTouchSlop(ViewDragHelper.DIRECTION_VERTICAL, pointerId);
-            } else if (mEdgeFlag == EDGE_BOTTOM || mEdgeFlag == EDGE_TOP) {
+            } else if (mEdgeFlag == ViewDragHelper.EDGE_BOTTOM || mEdgeFlag == ViewDragHelper.EDGE_TOP) {
                 directionCheck = !mDragHelper
                         .checkTouchSlop(ViewDragHelper.DIRECTION_HORIZONTAL, pointerId);
             }
@@ -517,12 +515,12 @@ public class ParallaxBackLayout extends FrameLayout {
 
         @Override
         public int getViewHorizontalDragRange(View child) {
-            return mEdgeFlag & (EDGE_LEFT | EDGE_RIGHT);
+            return mEdgeFlag & (ViewDragHelper.EDGE_LEFT | ViewDragHelper.EDGE_RIGHT);
         }
 
         @Override
         public int getViewVerticalDragRange(View child) {
-            return mEdgeFlag & (EDGE_BOTTOM | EDGE_TOP);
+            return mEdgeFlag & (ViewDragHelper.EDGE_BOTTOM | ViewDragHelper.EDGE_TOP);
         }
 
         @Override
@@ -532,15 +530,15 @@ public class ParallaxBackLayout extends FrameLayout {
                 mScrollPercent = Math.abs((float) (left - mInsets.left)
                         / mContentView.getWidth());
             }
-            if ((mTrackingEdge & EDGE_RIGHT) != 0) {
+            if ((mTrackingEdge & ViewDragHelper.EDGE_RIGHT) != 0) {
                 mScrollPercent = Math.abs((float) (left - mInsets.left)
                         / mContentView.getWidth());
             }
-            if ((mTrackingEdge & EDGE_BOTTOM) != 0) {
+            if ((mTrackingEdge & ViewDragHelper.EDGE_BOTTOM) != 0) {
                 mScrollPercent = Math.abs((float) (top - getSystemTop())
                         / mContentView.getHeight());
             }
-            if ((mTrackingEdge & EDGE_TOP) != 0) {
+            if ((mTrackingEdge & ViewDragHelper.EDGE_TOP) != 0) {
                 mScrollPercent = Math.abs((float) top
                         / mContentView.getHeight());
             }
@@ -570,21 +568,21 @@ public class ParallaxBackLayout extends FrameLayout {
                 left = xvel >= 0 && (fling || mScrollPercent > mScrollThreshold)
                         ? childWidth + mInsets.left : mInsets.left;
             }
-            if ((mTrackingEdge & EDGE_RIGHT) != 0) {
+            if ((mTrackingEdge & ViewDragHelper.EDGE_RIGHT) != 0) {
                 if (Math.abs(xvel) > mFlingVelocity) {
                     fling = true;
                 }
                 left = xvel <= 0 && (fling || mScrollPercent > mScrollThreshold)
                         ? -childWidth + mInsets.left : mInsets.left;
             }
-            if ((mTrackingEdge & EDGE_TOP) != 0) {
+            if ((mTrackingEdge & ViewDragHelper.EDGE_TOP) != 0) {
                 if (Math.abs(yvel) > mFlingVelocity) {
                     fling = true;
                 }
                 top = yvel >= 0 && (fling || mScrollPercent > mScrollThreshold)
                         ? childHeight : 0;
             }
-            if ((mTrackingEdge & EDGE_BOTTOM) != 0) {
+            if ((mTrackingEdge & ViewDragHelper.EDGE_BOTTOM) != 0) {
                 if (Math.abs(yvel) > mFlingVelocity) {
                     fling = true;
                 }
@@ -607,7 +605,7 @@ public class ParallaxBackLayout extends FrameLayout {
             int ret = mInsets.left;
             if ((mTrackingEdge & EDGE_LEFT) != 0) {
                 ret = Math.min(child.getWidth(), Math.max(left, 0));
-            } else if ((mTrackingEdge & EDGE_RIGHT) != 0) {
+            } else if ((mTrackingEdge & ViewDragHelper.EDGE_RIGHT) != 0) {
                 ret = Math.min(mInsets.left, Math.max(left, -child.getWidth()));
             } else {
 
@@ -618,9 +616,9 @@ public class ParallaxBackLayout extends FrameLayout {
         @Override
         public int clampViewPositionVertical(View child, int top, int dy) {
             int ret = mContentView.getTop();
-            if ((mTrackingEdge & EDGE_BOTTOM) != 0) {
+            if ((mTrackingEdge & ViewDragHelper.EDGE_BOTTOM) != 0) {
                 ret = Math.min(0, Math.max(top, -child.getHeight()));
-            } else if ((mTrackingEdge & EDGE_TOP) != 0) {
+            } else if ((mTrackingEdge & ViewDragHelper.EDGE_TOP) != 0) {
                 ret = Math.min(child.getHeight(), Math.max(top, 0));
             }
             return ret;

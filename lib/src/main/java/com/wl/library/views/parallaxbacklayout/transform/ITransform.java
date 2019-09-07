@@ -3,7 +3,7 @@ package com.wl.library.views.parallaxbacklayout.transform;
 import android.graphics.Canvas;
 import android.view.View;
 
-import com.github.anzewei.parallaxbacklayout.widget.ParallaxBackLayout;
+import com.wl.library.views.parallaxbacklayout.widget.ParallaxBackLayout;
 
 /**
  * ParallaxBackLayout

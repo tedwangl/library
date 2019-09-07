@@ -1,6 +1,6 @@
 package com.wl.library.views.parallaxbacklayout;
 
-import com.github.anzewei.parallaxbacklayout.widget.ParallaxBackLayout;
+import com.wl.library.views.parallaxbacklayout.widget.ParallaxBackLayout;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
