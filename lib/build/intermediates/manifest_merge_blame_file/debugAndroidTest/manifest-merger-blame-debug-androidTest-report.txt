@@ -3,41 +3,41 @@
 3    package="com.wl.library.test" >
 4
 5    <uses-sdk
-5-->/Users/wanglei/Desktop/library/lib/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger5680284653752405171.xml:5:5-74
+5-->/Users/wanglei/桌面文件/library/lib/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger4219562413198090014.xml:5:5-74
 6        android:minSdkVersion="19"
-6-->/Users/wanglei/Desktop/library/lib/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger5680284653752405171.xml:5:15-41
+6-->/Users/wanglei/桌面文件/library/lib/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger4219562413198090014.xml:5:15-41
 7        android:targetSdkVersion="28" />
-7-->/Users/wanglei/Desktop/library/lib/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger5680284653752405171.xml:5:42-71
+7-->/Users/wanglei/桌面文件/library/lib/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger4219562413198090014.xml:5:42-71
 8
 9    <instrumentation
-9-->/Users/wanglei/Desktop/library/lib/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger5680284653752405171.xml:11:5-15:69
+9-->/Users/wanglei/桌面文件/library/lib/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger4219562413198090014.xml:11:5-15:69
 10        android:name="androidx.test.runner.AndroidJUnitRunner"
-10-->/Users/wanglei/Desktop/library/lib/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger5680284653752405171.xml:11:22-76
+10-->/Users/wanglei/桌面文件/library/lib/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger4219562413198090014.xml:11:22-76
 11        android:functionalTest="false"
-11-->/Users/wanglei/Desktop/library/lib/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger5680284653752405171.xml:14:22-52
+11-->/Users/wanglei/桌面文件/library/lib/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger4219562413198090014.xml:14:22-52
 12        android:handleProfiling="false"
-12-->/Users/wanglei/Desktop/library/lib/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger5680284653752405171.xml:13:22-53
+12-->/Users/wanglei/桌面文件/library/lib/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger4219562413198090014.xml:13:22-53
 13        android:label="Tests for com.wl.library.test"
-13-->/Users/wanglei/Desktop/library/lib/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger5680284653752405171.xml:15:22-67
+13-->/Users/wanglei/桌面文件/library/lib/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger4219562413198090014.xml:15:22-67
 14        android:targetPackage="com.wl.library.test" />
-14-->/Users/wanglei/Desktop/library/lib/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger5680284653752405171.xml:12:22-65
+14-->/Users/wanglei/桌面文件/library/lib/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger4219562413198090014.xml:12:22-65
 15
 16    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-16-->[__tested_artifact__::lib] /Users/wanglei/Desktop/library/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:11:5-79
-16-->[__tested_artifact__::lib] /Users/wanglei/Desktop/library/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:11:22-76
+16-->[__tested_artifact__::lib] /Users/wanglei/桌面文件/library/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:11:5-79
+16-->[__tested_artifact__::lib] /Users/wanglei/桌面文件/library/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:11:22-76
 17    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-17-->[__tested_artifact__::lib] /Users/wanglei/Desktop/library/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:12:5-75
-17-->[__tested_artifact__::lib] /Users/wanglei/Desktop/library/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:12:22-72
+17-->[__tested_artifact__::lib] /Users/wanglei/桌面文件/library/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:12:5-75
+17-->[__tested_artifact__::lib] /Users/wanglei/桌面文件/library/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:12:22-72
 18
 19    <application
-19-->/Users/wanglei/Desktop/library/lib/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger5680284653752405171.xml:7:5-9:19
+19-->/Users/wanglei/桌面文件/library/lib/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger4219562413198090014.xml:7:5-9:19
 20        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 20-->[androidx.core:core:1.0.1] /Users/wanglei/.gradle/caches/transforms-2/files-2.1/72b2b92ec4ab73ff21fb9bc348de3b22/core-1.0.1/AndroidManifest.xml:22:18-86
 21        android:debuggable="true" >
-21-->/Users/wanglei/Desktop/library/lib/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger5680284653752405171.xml:7:18-43
+21-->/Users/wanglei/桌面文件/library/lib/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger4219562413198090014.xml:7:18-43
 22        <uses-library android:name="android.test.runner" />
-22-->/Users/wanglei/Desktop/library/lib/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger5680284653752405171.xml:8:9-60
-22-->/Users/wanglei/Desktop/library/lib/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger5680284653752405171.xml:8:23-57
+22-->/Users/wanglei/桌面文件/library/lib/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger4219562413198090014.xml:8:9-60
+22-->/Users/wanglei/桌面文件/library/lib/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger4219562413198090014.xml:8:23-57
 23
 24        <provider
 24-->[com.squareup.picasso:picasso:2.71828] /Users/wanglei/.gradle/caches/transforms-2/files-2.1/fdcc20b0a1fc7bd442829010670e396c/jetified-picasso-2.71828/AndroidManifest.xml:8:9-11:40

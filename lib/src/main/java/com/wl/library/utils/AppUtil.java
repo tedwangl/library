@@ -1,20 +1,29 @@
 package com.wl.library.utils;
 
+import android.app.ActivityManager;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.provider.Settings;
+import android.telephony.TelephonyManager;
+
 import com.wl.library.R;
 import com.wl.library.base.BaseApplication;
 
 import java.io.File;
+import java.util.List;
+import java.util.UUID;
+
 import androidx.core.content.FileProvider;
 
 
@@ -71,6 +80,25 @@ public class AppUtil {
             }
         }
     }
+
+    /**
+     * 使用浏览器打开链接
+     */
+    public static void openLink(Context context, String content) {
+        Uri issuesUrl = Uri.parse(content);
+        Intent intent = new Intent(Intent.ACTION_VIEW, issuesUrl);
+        context.startActivity(intent);
+    }
+
+    /**
+     * 处于栈顶的Activity名
+     */
+    public String getTopActivityName(Context context) {
+        ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+        List var2 = am.getRunningTasks(1);
+        return ((ActivityManager.RunningTaskInfo) var2.get(0)).topActivity.getClassName();
+    }
+
 
     public static void addToClipBoard(String label, String msg, Context context) {
         //获取剪贴板管理器：
@@ -196,6 +224,52 @@ public class AppUtil {
             cachePath = context.getCacheDir().getPath();
         }
         return cachePath + File.separator + uniqueName;
+    }
+
+    /*
+     * 获取机型
+     */
+    public static String getdevice() {
+        String s = android.os.Build.MODEL;
+        String t = s.replaceAll(" ", "");
+        return t;
+    }
+
+    /**
+     * 使其系统更改字体大小无效
+     */
+    public static void initTextSize(Context context) {
+        Resources res =context.getResources();
+        Configuration config = new Configuration();
+        config.setToDefaults();
+        res.updateConfiguration(config, res.getDisplayMetrics());
+    }
+
+    /**
+     * 判断手机是否安装某个应用
+     *
+     * @param context
+     * @param appPackageName 应用包名
+     * @return true：安装，false：未安装
+     */
+    public static boolean isApplicationAvilible(Context context, String appPackageName) {
+        try {
+            // 获取packagemanager
+            PackageManager packageManager = context.getPackageManager();
+            // 获取所有已安装程序的包信息
+            List<PackageInfo> pinfo = packageManager.getInstalledPackages(0);
+            if (pinfo != null) {
+                for (int i = 0; i < pinfo.size(); i++) {
+                    String pn = pinfo.get(i).packageName;
+                    if (appPackageName.equals(pn)) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        } catch (Exception ignored) {
+            return false;
+        }
     }
 
 }

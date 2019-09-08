@@ -3,9 +3,6 @@ package com.wl.library.utils;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
- * Created by peish on 2016/8/31.
- */
 public class PhoneUtil {
 
     public static boolean isMobileNO(String mobiles){

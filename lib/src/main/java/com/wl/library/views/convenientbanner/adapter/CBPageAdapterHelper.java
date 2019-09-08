@@ -2,7 +2,7 @@ package com.wl.library.views.convenientbanner.adapter;
 
 import android.view.View;
 import android.view.ViewGroup;
-import com.wl.library.views.convenientbanner.utils.ScreenUtil;
+import com.wl.library.utils.ScreenUtil;
 
 import androidx.recyclerview.widget.RecyclerView;
 

@@ -6,7 +6,7 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 
 import com.wl.library.R;
-import com.wl.library.views.convenientbanner.utils.ScreenUtil;
+import com.wl.library.utils.ScreenUtil;
 
 import androidx.appcompat.widget.AppCompatButton;
 
