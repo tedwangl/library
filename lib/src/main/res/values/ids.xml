@@ -15,5 +15,7 @@
     <item type="id" name="expandable_text"/>
     <item type="id" name="expand_collapse"/>
 
+    <item type="id" name="hierarchy"/>
+    <item type="id" name="isexpand"/>
 
 </resources>
