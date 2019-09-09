@@ -2,8 +2,7 @@ package com.wl.library.fragmention.anim;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-
-import me.yokeyword.fragmentation.R;
+import com.wl.library.R;
 
 /**
  * Created by YoKeyword on 16/2/5.
