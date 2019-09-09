@@ -1,4 +1,0 @@
-#Mon Sep 09 15:19:43 CST 2019
-base.0=/Users/wanglei/桌面文件/library/app/build/intermediates/dex/debug/mergeDexDebug/out/classes.dex
-path.0=classes.dex
-renamed.0=classes.dex
